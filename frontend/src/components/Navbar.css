@@ -1,0 +1,134 @@
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a72);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+nav div:first-child a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #00f7ff;
+  letter-spacing: 1px;
+}
+
+
+.navlinks {
+  display: flex;
+  gap: 30px;
+}
+
+.navlinks a.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #00f7ff, #00c3ff);
+  box-shadow: 0 0 8px #00f7ff;
+}
+
+
+.navlinks a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  transition: 0.3s;
+}
+
+
+.navlinks a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #00f7ff;
+  left: 0;
+  bottom: -5px;
+  transition: 0.4s ease;
+}
+
+.navlinks a:hover {
+  color: #00f7ff;
+}
+
+.navlinks a:hover::after {
+  width: 100%;
+}
+
+nav button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  background: transparent;
+  border: 1px solid #00f7ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav button a {
+  text-decoration: none;
+  color: #00f7ff;
+  font-weight: 500;
+}
+
+
+nav button:hover {
+  background: #00f7ff;
+  transform: translateY(-2px);
+}
+
+nav button:hover a {
+  color: #1e1e2f;
+}
+
+/* Hamburger */
+nav div:last-child {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .navlinks {
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navlinks {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    background: #1e1e2f;
+    text-align: center;
+    padding: 20px 0;
+    transition: 0.4s;
+  }
+
+  .navlinks.active {
+    left: 0;
+  }
+
+  nav div:nth-child(3) {
+    display: none;
+  }
+
+  nav div:last-child {
+    display: block;
+    color: white;
+  }
+}
